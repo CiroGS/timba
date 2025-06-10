@@ -23,11 +23,13 @@ function tick(){
         clearInterval(intervalId);
         intervalId = null;
         cont = 0;
-        final();
+        intervalId = setInterval(final, 75);
     }
 }
 function final(){
+    clearInterval(intervalId);
     random = Math.floor(Math.random()*10);
+    document.querySelector('#ale_num').textContent=random
     if(chance==random){
         plata = plata + num*10;
         document.querySelector('#saldo').textContent=plata;
@@ -38,4 +40,5 @@ function final(){
         document.querySelector('#saldo').textContent=plata;
         document.querySelector('#salida').textContent="perdiste $" + num;
     }
+    console.log(chance, random, typeof chance, typeof random);
 }
