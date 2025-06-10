@@ -6,14 +6,20 @@ let random = 0;
 let num = 0;
 function handleSubmit(event){
     event.preventDefault();
-    if(intervalId !== null){
-        clearInterval(intervalId);
+    num=document.querySelector('#apuesta').value;
+    if(plata-num>0){
+        if(intervalId !== null){
+            clearInterval(intervalId);
+        }
+        chance = document.querySelector('#numero').value
+        let n =3; 
+        document.querySelector('#salida').innerHTML=''
+        num = document.querySelector('#apuesta').value;
+        intervalId = setInterval(tick, 75);
+    }else{
+        document.querySelector('#salida').textContent="SALDO INSUFICIENTE POBRE"
     }
-    chance = document.querySelector('#numero').value
-    let n =3; 
-    document.querySelector('#salida').innerHTML=''
-    num = document.querySelector('#apuesta').value;
-    intervalId = setInterval(tick, 75);
+    
     
 }
 function tick(){
